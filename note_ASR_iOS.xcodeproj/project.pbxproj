@@ -56,6 +56,7 @@
 		2D578FD225C7454A00076C5D /* note_ASR_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				94086A9B25C8752B009108CB /* Model */,
 				2D578FD325C7454A00076C5D /* AppDelegate.swift */,
 				2D578FD525C7454A00076C5D /* SceneDelegate.swift */,
 				2D578FD925C7454A00076C5D /* Main.storyboard */,
@@ -63,8 +64,23 @@
 				2D578FE125C7454F00076C5D /* LaunchScreen.storyboard */,
 				2D578FE425C7454F00076C5D /* Info.plist */,
 				2D578FDC25C7454A00076C5D /* note_ASR_iOS.xcdatamodeld */,
+				94086A9C25C8753B009108CB /* Controller */,
 			);
 			path = note_ASR_iOS;
+			sourceTree = "<group>";
+		};
+		94086A9B25C8752B009108CB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		94086A9C25C8753B009108CB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
