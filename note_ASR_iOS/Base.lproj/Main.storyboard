@@ -345,6 +345,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="buttonSubject" destination="0MW-8I-5yU" id="boU-uE-zsN"/>
+                        <outlet property="noteDesc" destination="mi1-5y-BlY" id="WsO-ze-8pa"/>
+                        <outlet property="noteTitle" destination="IJH-4n-yOz" id="O9J-SZ-AOd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WSJ-Jn-fdW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
