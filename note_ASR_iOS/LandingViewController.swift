@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class LandingViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,  {
+class LandingViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate  {
    
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -37,7 +37,22 @@ class LandingViewController: UIViewController,UITableViewDelegate,UITableViewDat
         cell.detailTextLabel?.text = note.category
         return cell
     }
-   
+    //MARK: - SearchBar delegate
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if !searchText.isEmpty {
+            var predicate: NSPredicate = NSPredicate()
+            predicate = NSPredicate(format: "title contains[c] '\(searchText)' || subDescription contains[c] '\(searchText)'")
+            let fetchRequest :NSFetchRequest<Note> = Note.fetchRequest()
+            fetchRequest.predicate = predicate
+            do {
+                notes = try context.fetch(fetchRequest)
+            } catch let error as NSError {
+                print("Could not fetch. \(error)")
+            }
+        }
+        
+        tableView.reloadData()
+    }
 }
 
 
