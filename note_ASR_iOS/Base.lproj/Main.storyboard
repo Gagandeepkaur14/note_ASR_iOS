@@ -48,10 +48,17 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="l2U-FU-DM7" id="iiy-5Z-HwP"/>
+                                    <outlet property="delegate" destination="l2U-FU-DM7" id="Icb-Sd-tmh"/>
+                                </connections>
                             </tableView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Mh2-t3-3Bv">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="l2U-FU-DM7" id="OOR-on-N53"/>
+                                </connections>
                             </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ywn-fe-Fdi"/>
@@ -69,6 +76,7 @@
                     <tabBarItem key="tabBarItem" title="All" image="note" catalog="system" id="ej3-Rk-jLg"/>
                     <navigationItem key="navigationItem" title="Notes" largeTitleDisplayMode="always" id="tR1-2W-3qc"/>
                     <connections>
+                        <outlet property="searchBar" destination="Mh2-t3-3Bv" id="aDD-wx-PvZ"/>
                         <outlet property="tableView" destination="kj8-zk-MQF" id="6mg-7z-6pZ"/>
                     </connections>
                 </viewController>

@@ -50,7 +50,6 @@
 		2D578FC725C7454A00076C5D = {
 			isa = PBXGroup;
 			children = (
-				94086AAD25C8A93B009108CB /* LandingViewController.swift */,
 				72A7741C25C8A79600804716 /* Note+CoreDataClass.swift */,
 				72A7741D25C8A79600804716 /* Note+CoreDataProperties.swift */,
 				72A7741E25C8A79600804716 /* Category+CoreDataClass.swift */,
@@ -78,6 +77,7 @@
 				2D578FE125C7454F00076C5D /* LaunchScreen.storyboard */,
 				2D578FE425C7454F00076C5D /* Info.plist */,
 				2D578FDC25C7454A00076C5D /* note_ASR_iOS.xcdatamodeld */,
+				94086AAD25C8A93B009108CB /* LandingViewController.swift */,
 			);
 			path = note_ASR_iOS;
 			sourceTree = "<group>";

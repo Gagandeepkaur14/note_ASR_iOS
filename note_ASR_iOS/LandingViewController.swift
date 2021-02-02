@@ -8,17 +8,24 @@
 import UIKit
 import CoreData
 
-class LandingViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class LandingViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,  {
    
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     @IBOutlet weak var tableView: UITableView!
+    
+    
     var notes : [Note] = []
     let context =
         (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+    
     //MARK: - Tableview Delegates and Datasource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return notes.count
@@ -30,4 +37,7 @@ class LandingViewController: UIViewController,UITableViewDelegate,UITableViewDat
         cell.detailTextLabel?.text = note.category
         return cell
     }
+   
 }
+
+
