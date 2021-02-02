@@ -25,6 +25,18 @@ class LandingViewController: UIViewController,UITableViewDelegate,UITableViewDat
 
         // Do any additional setup after loading the view.
     }
+    override func viewWillAppear(_ animated: Bool) {
+        loadSavedData()
+        searchBar.text = ""
+        tabBarController?.navigationItem.rightBarButtonItem = nil
+        tabBarController?.title = "Notes"
+    }
+    // load subjects
+    func loadSavedData() {
+        notes = []
+        notes = try! context.fetch(Note.fetchRequest())
+        tableView.reloadData()
+    }
     
     //MARK: - Tableview Delegates and Datasource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -49,6 +61,8 @@ class LandingViewController: UIViewController,UITableViewDelegate,UITableViewDat
             } catch let error as NSError {
                 print("Could not fetch. \(error)")
             }
+        }else{
+            loadSavedData()
         }
         
         tableView.reloadData()
