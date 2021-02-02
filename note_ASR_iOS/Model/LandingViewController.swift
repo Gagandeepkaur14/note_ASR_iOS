@@ -37,6 +37,19 @@ class LandingViewController: UIViewController,UITableViewDelegate,UITableViewDat
         notes = try! context.fetch(Note.fetchRequest())
         tableView.reloadData()
     }
+    // delete notes
+    func deleteSavedData(note: Note){
+        context.delete(note)
+        try! context.save()
+        loadSavedData()
+    }
+    //MARK: - Segue Prep
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "onCellClick"{
+            let controller = segue.destination as! AddNoteViewController
+            guard let index = tableView.indexPathForSelectedRow else {return}
+        }
+    }
     
     //MARK: - Tableview Delegates and Datasource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -48,6 +61,11 @@ class LandingViewController: UIViewController,UITableViewDelegate,UITableViewDat
         cell.textLabel?.text = note.title
         cell.detailTextLabel?.text = note.category
         return cell
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            self.deleteSavedData(note: notes[indexPath.row])
+        }
     }
     //MARK: - SearchBar delegate
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
