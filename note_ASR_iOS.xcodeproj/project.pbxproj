@@ -21,6 +21,7 @@
 		72A7742225C8A79600804716 /* Category+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A7741E25C8A79600804716 /* Category+CoreDataClass.swift */; };
 		72A7742325C8A79600804716 /* Category+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A7741F25C8A79600804716 /* Category+CoreDataProperties.swift */; };
 		94086AAE25C8A93B009108CB /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94086AAD25C8A93B009108CB /* LandingViewController.swift */; };
+		941EE00725CAE1BA0061ED04 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941EE00625CAE1BA0061ED04 /* extensions.swift */; };
 		94DFDED225CA402B00D4B0B7 /* SubjectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DFDED125CA402B00D4B0B7 /* SubjectTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		72A7741E25C8A79600804716 /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataClass.swift"; sourceTree = "<group>"; };
 		72A7741F25C8A79600804716 /* Category+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		94086AAD25C8A93B009108CB /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
+		941EE00625CAE1BA0061ED04 /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		94DFDED125CA402B00D4B0B7 /* SubjectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,6 +60,7 @@
 		2D578FC725C7454A00076C5D = {
 			isa = PBXGroup;
 			children = (
+				941EE00625CAE1BA0061ED04 /* extensions.swift */,
 				72A7741C25C8A79600804716 /* Note+CoreDataClass.swift */,
 				72A7741D25C8A79600804716 /* Note+CoreDataProperties.swift */,
 				72A7741E25C8A79600804716 /* Category+CoreDataClass.swift */,
@@ -179,6 +182,7 @@
 				72A7742225C8A79600804716 /* Category+CoreDataClass.swift in Sources */,
 				72A7742025C8A79600804716 /* Note+CoreDataClass.swift in Sources */,
 				94DFDED225CA402B00D4B0B7 /* SubjectTableViewController.swift in Sources */,
+				941EE00725CAE1BA0061ED04 /* extensions.swift in Sources */,
 				2D2BE1EE25CA6CAC0068C2C7 /* MapViewController.swift in Sources */,
 				2D578FDE25C7454A00076C5D /* note_ASR_iOS.xcdatamodeld in Sources */,
 				2D2BE1EA25CA5B530068C2C7 /* AudioViewController.swift in Sources */,
