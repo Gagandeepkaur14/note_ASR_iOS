@@ -29,6 +29,9 @@ extension UIViewController {
                 return
             }
             actionHandler?(textField.text)
-         } ))
+         }))
+        alert.addAction(UIAlertAction(title: cancelTitle, style: .cancel, handler: cancelHandler))
+
+        self.present(alert, animated: true, completion: nil)
     }
 }
