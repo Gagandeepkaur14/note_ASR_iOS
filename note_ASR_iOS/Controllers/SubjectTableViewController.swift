@@ -19,10 +19,12 @@ class SubjectTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadSavedData()
+
         tableView.allowsSelectionDuringEditing = true
 }
    
     override func viewWillAppear(_ animated: Bool) {
+
         let edit = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editPressed))
          add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addPressed))
         navigationItem.rightBarButtonItems = [add,edit]
@@ -41,6 +43,14 @@ class SubjectTableViewController: UITableViewController {
             navigationItem.rightBarButtonItems = [add,edit]
         }
     }
+    
+    // update subject
+    func updateSavedData(subject : Category,name:String) {
+        subject.name = name
+        saveContext()
+    }
+    
+    
     
     //Mark:- adding a new subject
     @objc func addPressed() {
@@ -70,6 +80,8 @@ class SubjectTableViewController: UITableViewController {
         } catch  {
             print("Error \(error.localizedDescription)")
         }
+        loadSavedData()
+
     }
     
     // load subjects
@@ -90,6 +102,17 @@ class SubjectTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = subjects[indexPath.row].name
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView.isEditing{
+            self.showInputDialog(title: "Update", subtitle: "Update subject name..", actionTitle: "Save",defaultText: subjects[indexPath.row].name, inputKeyboardType: .default, actionHandler:  { (txt) in
+                guard let subject = txt else{return}
+                self.updateSavedData(subject: self.subjects[indexPath.row], name: subject)
+            })
+        }
+        
+        
     }
    
 }
