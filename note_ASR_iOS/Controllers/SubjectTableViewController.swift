@@ -16,21 +16,30 @@ class SubjectTableViewController: UITableViewController {
     let context =
         (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadSavedData()
         tableView.allowsSelectionDuringEditing = true
-
-    }
+}
+   
     override func viewWillAppear(_ animated: Bool) {
         let edit = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editPressed))
          add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addPressed))
         navigationItem.rightBarButtonItems = [add,edit]
     }
+  
+    //MARK:- edit func
     @objc func editPressed() {
-       
-        
+        if !tableView.isEditing{
+            let done = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(editPressed))
+            tableView.isEditing = true
+            navigationItem.rightBarButtonItems = [add,done]
+        }
+        else {
+            let edit = UIBarButtonItem(title: "Edit", style: .done, target: self, action: #selector(editPressed))
+            tableView.isEditing = false
+            navigationItem.rightBarButtonItems = [add,edit]
+        }
     }
     
     //Mark:- adding a new subject
@@ -44,11 +53,11 @@ class SubjectTableViewController: UITableViewController {
     // save new subject
     func savedData(name : String) {
         for subject in subjects{
-            if subject.name == name{
-                let alert  = UIAlertController(title: "Error", message: "Same subject name is not allowed.", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-                return
+        if subject.name == name{
+            let alert  = UIAlertController(title: "Error", message: "Same subject name is not allowed.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return
             }
         }
         let subject = Category(context: context)
