@@ -35,7 +35,7 @@ class SubjectTableViewController: UITableViewController {
     @objc func addPressed() {
         self.showInputDialog(title: "Enter New Subject", actionTitle: "Add", inputPlaceholder: "Subject", inputKeyboardType: .default, cancelHandler: nil) { (txt) in
             guard let subject = txt else{return}
-            self.savedData(name: subject)
+     //       self.savedData(name: subject)
 
         }
     }

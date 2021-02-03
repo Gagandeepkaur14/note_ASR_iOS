@@ -23,5 +23,12 @@ extension UIViewController {
             textField.keyboardType = inputKeyboardType
             textField.text = defaultText
     }
-}
+        alert.addAction(UIAlertAction(title: actionTitle, style: .default, handler: { (action:UIAlertAction) in
+            guard let textField =  alert.textFields?.first else {
+                actionHandler?(nil)
+                return
+            }
+            actionHandler?(textField.text)
+         } ))
+    }
 }
