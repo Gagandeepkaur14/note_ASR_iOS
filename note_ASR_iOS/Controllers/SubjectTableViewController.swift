@@ -19,7 +19,7 @@ class SubjectTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        loadSavedData()
         tableView.allowsSelectionDuringEditing = true
 
     }
@@ -61,6 +61,13 @@ class SubjectTableViewController: UITableViewController {
         } catch  {
             print("Error \(error.localizedDescription)")
         }
+    }
+    
+    // load subjects
+    func loadSavedData() {
+        subjects = []
+        subjects = try! context.fetch(Category.fetchRequest())
+        tableView.reloadData()
     }
     
 
