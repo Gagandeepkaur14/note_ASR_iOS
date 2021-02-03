@@ -71,5 +71,23 @@ class AddNoteViewController: UIViewController, UIImagePickerControllerDelegate,U
         imagePicker.allowsEditing = true
         self.present(imagePicker, animated: true)
     }
+    //MARK: - Camera and Photo Delegats
+    
+   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    if let image = info[.editedImage] as? UIImage {
+        imageView.image = image
+        selectedImage = (info[.imageURL] as? URL)?.absoluteString
+    }
+    else if let image = info[.originalImage] as? UIImage {
+        imageView.image = image
+        selectedImage = (info[.imageURL] as? URL)?.absoluteString
+    } else {
+        print("Other Source")
+    }
+    picker.dismiss(animated: true, completion: nil)
+}
+func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+    picker.dismiss(animated: true, completion: nil)
+}
 }
 
