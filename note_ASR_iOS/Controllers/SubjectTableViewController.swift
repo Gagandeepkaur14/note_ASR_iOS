@@ -91,6 +91,18 @@ class SubjectTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    // delete subject
+    func deleteSavedData(subject : Category) {
+        let fetch : NSFetchRequest<Note> = Note.fetchRequest()
+        fetch.predicate = NSPredicate(format: "category = %@", subject.name!)
+        let notes = try! context.fetch(fetch)
+        for note in notes{
+            context.delete(note)
+        }
+        context.delete(subject)
+        saveContext()
+    }
+    
 
     // MARK: - Table view data source
  
@@ -115,4 +127,12 @@ class SubjectTableViewController: UITableViewController {
         
     }
    
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            
+            self.deleteSavedData(subject: subjects[indexPath.row])
+
+        }
+    }
 }
