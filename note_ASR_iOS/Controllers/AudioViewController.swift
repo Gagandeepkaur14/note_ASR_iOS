@@ -8,12 +8,13 @@
 import UIKit
 import AVFoundation
 
-class AudioViewController: UIViewController {
+class AudioViewController: UIViewController,AVAudioRecorderDelegate {
     
     @IBOutlet weak var recordButton: UIButton!
     var recordingSession: AVAudioSession!
     var audioRecorder: AVAudioRecorder!
     var addNoteVC : AddNoteViewController?
+    var audioFilename : URL?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,21 +49,44 @@ class AudioViewController: UIViewController {
         recordButton.addTarget(self, action: #selector(recordTapped), for: .touchUpInside)
         view.addSubview(recordButton)
     }
+    
+    
      
     @objc func recordTapped() {
-       
+        if audioRecorder == nil {
+            startRecording()
+            //
+        }
     }
     
     
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func startRecording() {
+        try! recordingSession.setCategory(.record)
+         audioFilename = getDocumentsDirectory().appendingPathComponent("\(UUID().uuidString).m4a")
+        
+        let settings = [
+            AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
+            AVSampleRateKey: 12000,
+            AVNumberOfChannelsKey: 1,
+            AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
+        ]
+        
+        do {
+            audioRecorder = try AVAudioRecorder(url: audioFilename!, settings: settings)
+            audioRecorder.delegate = self
+            audioRecorder.record()
+            recordButton.setTitle("Tap to Stop", for: .normal)
+        } catch {
+            //
+        }
     }
-    */
+    
+    func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+    
+    
+   
 
 }
