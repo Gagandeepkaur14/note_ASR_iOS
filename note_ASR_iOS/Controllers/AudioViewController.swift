@@ -55,11 +55,12 @@ class AudioViewController: UIViewController,AVAudioRecorderDelegate {
     @objc func recordTapped() {
         if audioRecorder == nil {
             startRecording()
-            //
-        }
+            }  else {
+          finishRecording(success: true)
+            }
     }
     
-    
+    //MARK: - start recording audio
     func startRecording() {
         try! recordingSession.setCategory(.record)
          audioFilename = getDocumentsDirectory().appendingPathComponent("\(UUID().uuidString).m4a")
@@ -77,7 +78,8 @@ class AudioViewController: UIViewController,AVAudioRecorderDelegate {
             audioRecorder.record()
             recordButton.setTitle("Tap to Stop", for: .normal)
         } catch {
-            //
+            finishRecording(success: false)
+
         }
     }
     
@@ -86,6 +88,18 @@ class AudioViewController: UIViewController,AVAudioRecorderDelegate {
         return paths[0]
     }
     
+    
+    func finishRecording(success: Bool) {
+        audioRecorder.stop()
+        audioRecorder = nil
+        
+        if success {
+            recordButton.setTitle("Tap to Re-record", for: .normal)
+        } else {
+            recordButton.setTitle("Tap to Record", for: .normal)
+            // recording failed :(
+        }
+    }
     
    
 
