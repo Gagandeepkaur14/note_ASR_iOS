@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wTH-CP-UA7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wTH-CP-UA7">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -174,6 +174,9 @@
                     <navigationItem key="navigationItem" title="Audio Record" id="3AR-IO-BXZ">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="Vsd-Ap-uXo"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="recordButton" destination="nXq-Ao-AGW" id="T5v-Rq-dOz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hLY-H1-yHu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -349,6 +352,7 @@
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="buttonRecord" destination="OSZ-vo-ZBe" id="7i2-nV-8pi"/>
                         <outlet property="buttonSubject" destination="0MW-8I-5yU" id="boU-uE-zsN"/>
                         <outlet property="imageView" destination="3Px-hV-RSX" id="KDz-xq-Cwh"/>
                         <outlet property="noteDesc" destination="mi1-5y-BlY" id="WsO-ze-8pa"/>

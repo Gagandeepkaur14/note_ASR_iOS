@@ -6,22 +6,24 @@
 //
 
 import UIKit
+import AVFoundation
 
 class AddNoteViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate  {
 
     var selectedImage : String?
     var selectedSubject : String?
     var selectedNote : Note?
+    var selectedAudio : String?
+
     let context =
         (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-   
-    
-    
-    @IBOutlet weak var imageView: UIImageView!
+   @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var buttonSubject: UIButton!
     @IBOutlet weak var noteTitle: UITextField!
     @IBOutlet weak var noteDesc: UITextView!
+    @IBOutlet weak var buttonRecord: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D2BE1EA25CA5B530068C2C7 /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2BE1E925CA5B530068C2C7 /* AudioViewController.swift */; };
 		2D578FD425C7454A00076C5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D578FD325C7454A00076C5D /* AppDelegate.swift */; };
 		2D578FD625C7454A00076C5D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D578FD525C7454A00076C5D /* SceneDelegate.swift */; };
 		2D578FDB25C7454A00076C5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D578FD925C7454A00076C5D /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D2BE1E925CA5B530068C2C7 /* AudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewController.swift; sourceTree = "<group>"; };
 		2D578FD025C7454A00076C5D /* note_ASR_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = note_ASR_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D578FD325C7454A00076C5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2D578FD525C7454A00076C5D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,19 +83,20 @@
 				2D578FE125C7454F00076C5D /* LaunchScreen.storyboard */,
 				2D578FE425C7454F00076C5D /* Info.plist */,
 				2D578FDC25C7454A00076C5D /* note_ASR_iOS.xcdatamodeld */,
-				2DBE869425C9C34100327695 /* Model */,
+				2DBE869425C9C34100327695 /* Controllers */,
 			);
 			path = note_ASR_iOS;
 			sourceTree = "<group>";
 		};
-		2DBE869425C9C34100327695 /* Model */ = {
+		2DBE869425C9C34100327695 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				94086AAD25C8A93B009108CB /* LandingViewController.swift */,
 				2DBE869625C9C35E00327695 /* AddNoteViewController.swift */,
 				94DFDED125CA402B00D4B0B7 /* SubjectTableViewController.swift */,
+				2D2BE1E925CA5B530068C2C7 /* AudioViewController.swift */,
 			);
-			path = Model;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,6 +177,7 @@
 				72A7742025C8A79600804716 /* Note+CoreDataClass.swift in Sources */,
 				94DFDED225CA402B00D4B0B7 /* SubjectTableViewController.swift in Sources */,
 				2D578FDE25C7454A00076C5D /* note_ASR_iOS.xcdatamodeld in Sources */,
+				2D2BE1EA25CA5B530068C2C7 /* AudioViewController.swift in Sources */,
 				2D578FD625C7454A00076C5D /* SceneDelegate.swift in Sources */,
 				72A7742125C8A79600804716 /* Note+CoreDataProperties.swift in Sources */,
 			);
