@@ -242,6 +242,9 @@
                                 <state key="normal">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="photoPressed:" destination="rDy-dh-ED8" eventType="touchUpInside" id="hFy-7L-yfQ"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="NJN-qU-bx7">
                                 <rect key="frame" x="20" y="461" width="374" height="110"/>
@@ -347,6 +350,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="buttonSubject" destination="0MW-8I-5yU" id="boU-uE-zsN"/>
+                        <outlet property="imageView" destination="3Px-hV-RSX" id="KDz-xq-Cwh"/>
                         <outlet property="noteDesc" destination="mi1-5y-BlY" id="WsO-ze-8pa"/>
                         <outlet property="noteTitle" destination="IJH-4n-yOz" id="O9J-SZ-AOd"/>
                     </connections>
