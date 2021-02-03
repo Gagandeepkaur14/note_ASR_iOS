@@ -39,14 +39,6 @@ class AddNoteViewController: UIViewController, UIImagePickerControllerDelegate,U
         }
 
 }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "subject"{
-            let vc = segue.destination as! SubjectTableViewController
-            vc.addNoteVC = self
-        }
-    }
-    
     //MARK: - IB Actions
 
     @IBAction func photoPressed(_ sender: Any) {
@@ -98,5 +90,14 @@ class AddNoteViewController: UIViewController, UIImagePickerControllerDelegate,U
 func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
     picker.dismiss(animated: true, completion: nil)
 }
+   
+    //MARK:- Perp Segaue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "subject"{
+            let vc = segue.destination as! SubjectTableViewController
+            vc.addNoteVC = self
+        }
+
 }
 
+}
