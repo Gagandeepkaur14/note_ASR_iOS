@@ -101,6 +101,14 @@ class AudioViewController: UIViewController,AVAudioRecorderDelegate {
         }
     }
     
-   
+    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+        print(audioFilename?.absoluteURL ?? "")
+        print(audioFilename?.absoluteString ?? "")
+        print(audioFilename?.relativeString ?? "")
+        if !flag {
+            finishRecording(success: false)
+        }
+        try! recordingSession.setCategory(.playback)
+    }
 
 }
