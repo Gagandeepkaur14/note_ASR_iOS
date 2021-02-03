@@ -32,11 +32,34 @@ class SubjectTableViewController: UITableViewController {
        
         
     }
+    
+    //Mark:- adding a new subject
     @objc func addPressed() {
         self.showInputDialog(title: "Enter New Subject", actionTitle: "Add", inputPlaceholder: "Subject", inputKeyboardType: .default, cancelHandler: nil) { (txt) in
             guard let subject = txt else{return}
             self.savedData(name: subject)
-
+        }
+    }
+    
+    // save new subject
+    func savedData(name : String) {
+        for subject in subjects{
+            if subject.name == name{
+                let alert  = UIAlertController(title: "Error", message: "Same subject name is not allowed.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                return
+            }
+        }
+        let subject = Category(context: context)
+        subject.name = name
+        saveContext()
+    }
+    func saveContext(){
+        do {
+            try context.save()
+        } catch  {
+            print("Error \(error.localizedDescription)")
         }
     }
     
