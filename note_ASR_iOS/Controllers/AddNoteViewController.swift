@@ -40,6 +40,13 @@ class AddNoteViewController: UIViewController, UIImagePickerControllerDelegate,U
 
 }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "subject"{
+            let vc = segue.destination as! SubjectTableViewController
+            vc.addNoteVC = self
+        }
+    }
+    
     //MARK: - IB Actions
 
     @IBAction func photoPressed(_ sender: Any) {

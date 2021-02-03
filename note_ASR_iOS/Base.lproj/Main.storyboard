@@ -44,7 +44,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="rDy-dh-ED8" kind="show" id="BAo-Hf-TPb"/>
+                                            <segue destination="rDy-dh-ED8" kind="show" identifier="onCellClick" id="BAo-Hf-TPb"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -192,6 +192,9 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="4Jl-qq-82v">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="591"/>
+                                <connections>
+                                    <outlet property="delegate" destination="o2r-cJ-uNc" id="5Gl-gh-XaA"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zip-Kl-Btd"/>
@@ -272,7 +275,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <segue destination="o01-fK-kdR" kind="show" id="Ijm-ws-MAI"/>
+                                                    <segue destination="o01-fK-kdR" kind="show" identifier="subject" id="Ijm-ws-MAI"/>
                                                 </connections>
                                             </button>
                                             <button hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NC2-bJ-qtV">
@@ -384,6 +387,10 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="o01-fK-kdR" id="QbA-Fc-blS"/>
+                            <outlet property="delegate" destination="o01-fK-kdR" id="mlg-0b-2Fq"/>
+                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Subjects" id="FOj-qS-ZTG"/>
                 </tableViewController>
