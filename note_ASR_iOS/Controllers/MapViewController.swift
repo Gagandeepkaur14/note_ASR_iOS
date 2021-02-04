@@ -7,9 +7,13 @@
 
 import UIKit
 import MapKit
-var note : Note?
+
 
 class MapViewController: UIViewController {
+    
+    
+    var note : Note?
+    
     
     @IBOutlet weak var mapView: MKMapView!
 

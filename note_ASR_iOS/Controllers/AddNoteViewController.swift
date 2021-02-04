@@ -7,8 +7,9 @@
 
 import UIKit
 import AVFoundation
+import CoreLocation
 
-class AddNoteViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate  {
+class AddNoteViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate, CLLocationManagerDelegate{
 
     var selectedImage : String?
     var selectedSubject : String?
@@ -18,12 +19,17 @@ class AddNoteViewController: UIViewController, UIImagePickerControllerDelegate,U
     let context =
         (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    
+    
    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var buttonSubject: UIButton!
     @IBOutlet weak var noteTitle: UITextField!
     @IBOutlet weak var noteDesc: UITextView!
     @IBOutlet weak var buttonRecord: UIButton!
 
+    @IBOutlet weak var mapButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -98,6 +104,17 @@ func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
             vc.addNoteVC = self
         }
 
+        else if segue.identifier == "map"{
+             let vc = segue.destination as! MapViewController
+             vc.note = selectedNote
+         }
+         else{
+             let vc = segue.destination as! AudioViewController
+             if let _ = selectedAudio{
+                 vc.audioFilename = URL(string: selectedAudio!)
+             }
+             vc.addNoteVC = self
+         }
 }
 
 }

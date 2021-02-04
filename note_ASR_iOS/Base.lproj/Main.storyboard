@@ -371,6 +371,7 @@
                         <outlet property="buttonRecord" destination="OSZ-vo-ZBe" id="7i2-nV-8pi"/>
                         <outlet property="buttonSubject" destination="0MW-8I-5yU" id="boU-uE-zsN"/>
                         <outlet property="imageView" destination="3Px-hV-RSX" id="KDz-xq-Cwh"/>
+                        <outlet property="mapButton" destination="NC2-bJ-qtV" id="QuT-Dy-u7R"/>
                         <outlet property="noteDesc" destination="mi1-5y-BlY" id="WsO-ze-8pa"/>
                         <outlet property="noteTitle" destination="IJH-4n-yOz" id="O9J-SZ-AOd"/>
                     </connections>
