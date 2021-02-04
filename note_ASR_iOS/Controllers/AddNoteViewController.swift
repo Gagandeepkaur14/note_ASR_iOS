@@ -36,6 +36,7 @@ class AddNoteViewController: UIViewController, UIImagePickerControllerDelegate,U
         manager.delegate = self
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
+        loadSavedData(note: selectedNote)
 
         // Do any additional setup after loading the view.
     }
@@ -43,6 +44,7 @@ class AddNoteViewController: UIViewController, UIImagePickerControllerDelegate,U
     override func viewWillAppear(_ animated: Bool) {
         
         let save = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(savePressed))
+        
         tabBarController?.title = "New Note"
         tabBarController?.navigationItem.rightBarButtonItem = save
     }
@@ -69,10 +71,13 @@ class AddNoteViewController: UIViewController, UIImagePickerControllerDelegate,U
                 
             }
             mapButton.isHidden = false
+            let save = UIBarButtonItem(title: "Update", style: .done, target: self, action: #selector(updatePressed))
+            self.tabBarController?.title = "View Note"
+            tabBarController?.navigationItem.rightBarButtonItem = save
+            
         }
 
 }
-    
     //MARK:- Barbutton actions
     @objc func savePressed(){
         if noteTitle != nil && selectedSubject != nil{
@@ -88,17 +93,28 @@ class AddNoteViewController: UIViewController, UIImagePickerControllerDelegate,U
             selectedNote = note
             
             try! context.save()
-           noteTitle.text = nil
-           noteDesc.text = nil
-           location = nil
-           selectedSubject = nil
-
+            noteTitle.text = nil
+            noteDesc.text = nil
+            location = nil
+            selectedSubject = nil
             buttonSubject.setTitle("Select Subject", for: [])
         }
         else{
-            let alert  = UIAlertController(title: "Error", message: "Note title and Subject name are required fields.", preferredStyle: .alert)
+            let alert  = UIAlertController(title: "Error", message: "Note title and Subject name is required fields.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func updatePressed(_ sender: Any) {
+        if let note = self.selectedNote{
+            note.title = noteTitle.text
+            note.subDescription = noteDesc.text
+            note.category = selectedSubject
+            note.image = selectedImage
+            note.audio = selectedAudio
+            try! context.save()
+            self.navigationController?.popViewController(animated: true)
         }
     }
     
@@ -187,7 +203,7 @@ func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         }
 
         else if segue.identifier == "map"{
-             let vc = segue.destination as! MapViewController
+            let vc = segue.destination as! MapViewController
              vc.note = selectedNote
          }
          else{
