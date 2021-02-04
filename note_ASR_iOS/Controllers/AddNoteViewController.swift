@@ -119,6 +119,16 @@ class AddNoteViewController: UIViewController, UIImagePickerControllerDelegate,U
         location = locations[0]
     }
     
+    func subjectSet(selected :String?){
+        if selected == nil {
+            selectedSubject = nil
+            buttonSubject.setTitle("Select Subject", for: [])
+        }
+        else{
+            selectedSubject = selected
+            buttonSubject.setTitle(selected, for: [])
+        }
+    }
     
     //MARK: - Camera and Photo Delegats
     
