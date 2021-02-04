@@ -55,6 +55,20 @@ class AddNoteViewController: UIViewController, UIImagePickerControllerDelegate,U
             noteTitle.text = note.title
             noteDesc.text = note.subDescription
             selectedNote = note
+            subjectSet(selected: note.category)
+            selectedImage = note.image
+            selectedSubject = note.category
+            selectedAudio = note.audio
+            if let _ = selectedAudio{
+                buttonRecord.setTitle("Play Recorded Audio", for: [])
+            }
+            if let _ = selectedImage{
+                if let data = try? Data(contentsOf: URL(string: selectedImage!)!){
+                    imageView.image = UIImage(data: data)
+                }
+                
+            }
+            mapButton.isHidden = false
         }
 
 }
