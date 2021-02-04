@@ -82,6 +82,13 @@ class AddNoteViewController: UIViewController, UIImagePickerControllerDelegate,U
         imagePicker.allowsEditing = true
         self.present(imagePicker, animated: true)
     }
+    
+    //MARK: - location delegates
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        location = locations[0]
+    }
+    
+    
     //MARK: - Camera and Photo Delegats
     
    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
