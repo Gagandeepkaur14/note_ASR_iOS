@@ -72,6 +72,11 @@ class AddNoteViewController: UIViewController, UIImagePickerControllerDelegate,U
 
             buttonSubject.setTitle("Select Subject", for: [])
         }
+        else{
+            let alert  = UIAlertController(title: "Error", message: "Note title and Subject name are required fields.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     //MARK: - IB Actions
