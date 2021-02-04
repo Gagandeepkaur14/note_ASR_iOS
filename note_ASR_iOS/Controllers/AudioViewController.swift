@@ -15,19 +15,16 @@ class AudioViewController: UIViewController,AVAudioRecorderDelegate {
     var audioRecorder: AVAudioRecorder!
     var addNoteVC : AddNoteViewController?
     var audioFilename : URL?
-    
+    var bombSoundEffect: AVAudioPlayer?
     override func viewDidLoad() {
         super.viewDidLoad()
         recorderSettingUp()
-
-
         // Do any additional setup after loading the view.
     }
     
     
     func recorderSettingUp(){
         recordingSession = AVAudioSession.sharedInstance()
-        
         do {
             try recordingSession.setCategory(.playAndRecord, mode: .default)
             try recordingSession.setActive(true)
@@ -50,8 +47,6 @@ class AudioViewController: UIViewController,AVAudioRecorderDelegate {
         view.addSubview(recordButton)
     }
     
-    
-     
     @objc func recordTapped() {
         if audioRecorder == nil {
             startRecording()
@@ -88,7 +83,6 @@ class AudioViewController: UIViewController,AVAudioRecorderDelegate {
         return paths[0]
     }
     
-    
     func finishRecording(success: Bool) {
         audioRecorder.stop()
         audioRecorder = nil
@@ -101,6 +95,14 @@ class AudioViewController: UIViewController,AVAudioRecorderDelegate {
         }
     }
     
+    @IBAction func savePressed(_ sender: Any) {
+        if let file = audioFilename{
+       
+         self.navigationController?.popViewController(animated: true)
+        }
+    }
+        
+       
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         print(audioFilename?.absoluteURL ?? "")
         print(audioFilename?.absoluteString ?? "")
@@ -112,3 +114,4 @@ class AudioViewController: UIViewController,AVAudioRecorderDelegate {
     }
 
 }
+
