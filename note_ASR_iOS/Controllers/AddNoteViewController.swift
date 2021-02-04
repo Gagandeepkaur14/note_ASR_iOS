@@ -130,6 +130,13 @@ class AddNoteViewController: UIViewController, UIImagePickerControllerDelegate,U
         }
     }
     
+    func audioRecordingSet(file : String?){
+        selectedAudio = file
+        if let _ = selectedAudio{
+            buttonRecord.setTitle("Play Recorded Audio", for: [])
+        }
+    }
+    
     //MARK: - Camera and Photo Delegats
     
    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
