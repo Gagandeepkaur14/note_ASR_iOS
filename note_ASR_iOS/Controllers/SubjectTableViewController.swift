@@ -123,7 +123,12 @@ class SubjectTableViewController: UITableViewController {
                 self.updateSavedData(subject: self.subjects[indexPath.row], name: subject)
             })
         }
-        
+        else{
+            guard let vc = addNoteVC else {return}
+            vc.subjectSet(selected: self.subjects[indexPath.row].name)
+            self.navigationController?.popViewController(animated: true)
+        }
+
         
     }
    
