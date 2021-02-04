@@ -23,6 +23,7 @@ class AudioViewController: UIViewController,AVAudioRecorderDelegate {
     }
     
     
+    
     func recorderSettingUp(){
         recordingSession = AVAudioSession.sharedInstance()
         do {
@@ -95,12 +96,32 @@ class AudioViewController: UIViewController,AVAudioRecorderDelegate {
         }
     }
     
+    //MARK: - SAVE fun is used to save recorded audio
     @IBAction func savePressed(_ sender: Any) {
-        if let file = audioFilename{
+       
        
          self.navigationController?.popViewController(animated: true)
-        }
+        
     }
+    
+// MARK: - play fun is used to play recorded audio
+    @IBAction func playPressed(_ sender: Any) {
+        if let url = audioFilename{
+            do {
+                bombSoundEffect = try AVAudioPlayer(contentsOf: url)
+                bombSoundEffect?.play()
+                print("Playinngngg....")
+            } catch {
+                 print("couldn't load file :(")
+            }
+        }
+        else{
+            print("file not found")
+        }
+       
+    }
+    
+    
         
        
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
