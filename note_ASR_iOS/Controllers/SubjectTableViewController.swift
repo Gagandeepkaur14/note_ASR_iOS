@@ -46,7 +46,16 @@ class SubjectTableViewController: UITableViewController {
     
     // update subject
     func updateSavedData(subject : Category,name:String) {
+        for subject in subjects{
+        if subject.name == name{
+            let alert  = UIAlertController(title: "Error", message: "Same subject name is not allowed.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return
+            }
+        }
         subject.name = name
+       
         saveContext()
     }
     
