@@ -135,7 +135,8 @@ class SubjectTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
-            
+            guard let vc = addNoteVC else {return}
+            vc.subjectSet(selected: nil)
             self.deleteSavedData(subject: subjects[indexPath.row])
 
         }
