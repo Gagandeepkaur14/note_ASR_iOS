@@ -49,6 +49,31 @@ class AddNoteViewController: UIViewController, UIImagePickerControllerDelegate,U
         }
 
 }
+    
+    //MARK:- Barbutton actions
+    @objc func savePressed(){
+        if noteTitle != nil && selectedSubject != nil{
+            let note = Note(context: context)
+            note.title = noteTitle.text
+            note.subDescription = noteDesc.text
+            note.lat = Double(location!.coordinate.latitude)
+            note.long = Double(location!.coordinate.longitude)
+            note.date = Date()
+            note.audio = selectedAudio
+            note.category = selectedSubject
+            note.image = selectedImage
+            selectedNote = note
+            
+            try! context.save()
+           noteTitle.text = nil
+           noteDesc.text = nil
+           location = nil
+           selectedSubject = nil
+
+            buttonSubject.setTitle("Select Subject", for: [])
+        }
+    }
+    
     //MARK: - IB Actions
 
     @IBAction func photoPressed(_ sender: Any) {
@@ -66,6 +91,7 @@ class AddNoteViewController: UIViewController, UIImagePickerControllerDelegate,U
         self.present(actionSheet, animated: true, completion: nil)
         
     }
+    
     func camera()
     {
         let imagePicker = UIImagePickerController()
@@ -126,6 +152,7 @@ func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
              }
              vc.addNoteVC = self
          }
+        
 }
 
 }
