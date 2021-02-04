@@ -39,6 +39,15 @@ class AddNoteViewController: UIViewController, UIImagePickerControllerDelegate,U
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        let save = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(savePressed))
+        tabBarController?.title = "New Note"
+        tabBarController?.navigationItem.rightBarButtonItem = save
+    }
+    
+    
     //MARK: - Functions
     
     func loadSavedData(note:Note?){
