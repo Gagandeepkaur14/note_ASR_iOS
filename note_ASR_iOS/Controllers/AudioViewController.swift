@@ -99,8 +99,11 @@ class AudioViewController: UIViewController,AVAudioRecorderDelegate {
     //MARK: - SAVE fun is used to save recorded audio
     @IBAction func savePressed(_ sender: Any) {
        
-       
-         self.navigationController?.popViewController(animated: true)
+       if let file = audioFilename{
+            guard let vc = addNoteVC else {return}
+            vc.audioRecordingSet(file: file.absoluteString)
+            self.navigationController?.popViewController(animated: true)
+        }
         
     }
     
