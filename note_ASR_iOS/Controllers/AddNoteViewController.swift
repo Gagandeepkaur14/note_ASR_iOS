@@ -15,23 +15,27 @@ class AddNoteViewController: UIViewController, UIImagePickerControllerDelegate,U
     var selectedSubject : String?
     var selectedNote : Note?
     var selectedAudio : String?
+    var manager = CLLocationManager()
+    var location : CLLocation?
 
     let context =
         (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     
     
-   @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var buttonSubject: UIButton!
     @IBOutlet weak var noteTitle: UITextField!
     @IBOutlet weak var noteDesc: UITextView!
     @IBOutlet weak var buttonRecord: UIButton!
-
     @IBOutlet weak var mapButton: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        manager.delegate = self
+        manager.requestWhenInUseAuthorization()
+        manager.startUpdatingLocation()
 
         // Do any additional setup after loading the view.
     }

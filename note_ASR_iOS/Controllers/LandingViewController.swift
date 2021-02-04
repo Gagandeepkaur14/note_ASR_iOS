@@ -48,6 +48,7 @@ class LandingViewController: UIViewController,UITableViewDelegate,UITableViewDat
         if segue.identifier == "onCellClick"{
             let controller = segue.destination as! AddNoteViewController
             guard let index = tableView.indexPathForSelectedRow else {return}
+            controller.selectedNote = notes[index.row]
         }
     }
     
