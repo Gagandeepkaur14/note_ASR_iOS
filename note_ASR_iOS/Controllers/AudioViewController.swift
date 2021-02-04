@@ -120,7 +120,11 @@ class AudioViewController: UIViewController,AVAudioRecorderDelegate {
         }
        
     }
-    
+   
+    //MARK:- stop func is used to stop playing
+    @IBAction func stopPressed(_ sender: Any) {
+        bombSoundEffect?.stop()
+    }
     
         
        
